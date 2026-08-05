@@ -1,6 +1,6 @@
 # CODEOWNERS
 
-* @hamsehmahamud
+* @omeraibrahim
 *.js @hamsehmahamud
 /.github/ @hamsehmahamud
-/scripts/deploy.sh @hamsehmahamud
+/scripts/deploy.sh @omeraibrahim

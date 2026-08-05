@@ -1,0 +1,11 @@
+# Global fallback: Catch-all owner for any file not caught by later rules
+@hamsehmahamud
+
+# Match by file extension: JavaScript files are owned by a specific team
+.js @hamsehmahamud
+
+# Match an entire directory: Every file inside the /docs/ folder  
+/docs/ @hamsehmahamud
+
+# Match a specific file: Exactly matches a single key file 
+/scripts/deploy.sh @hamsehmahamud

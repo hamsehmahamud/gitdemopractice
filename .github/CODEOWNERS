@@ -2,10 +2,10 @@
 @global-lead-user
 
 # Match by file extension: JavaScript files are owned by a specific team
-*.js @org-name/frontend-developers
+.js @org-name/frontend-developers
 
-# Match an entire directory: Every file inside the /docs/ folder 
+# Match an entire directory: Every file inside the /docs/ folder  
 /docs/ @tech-writer-user
 
 # Match a specific file: Exactly matches a single key file 
-/scripts/deploy.sh @devops-engineer @security-lead  
+/scripts/deploy.sh @devops-engineer @security-lead 

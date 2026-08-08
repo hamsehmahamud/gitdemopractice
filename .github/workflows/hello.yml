@@ -1,17 +1,25 @@
-name: My First Workflow
+name: Hello Student Workflow
 
-on: push
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
 
 jobs:
-  say-hello:
+  hello-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Get the code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Greet and count files
         env:
           STUDENT_NAME: ${{ vars.STUDENT_NAME }}
         run: |
-          COUNT=$(find . -type f -not -path './.git/*' | wc -l)
-          echo "Hello $STUDENT_NAME, your files count are $COUNT"
+          if [ -z "$STUDENT_NAME" ]; then
+            echo "Hello! It looks like the STUDENT_NAME variable is not set yet."
+          else
+            echo "Hello, $STUDENT_NAME!"
+          fi

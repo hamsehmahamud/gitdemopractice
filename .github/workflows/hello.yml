@@ -1,25 +1,14 @@
-name: Hello Student Workflow
+name: Workflows one
 
 on:
   push:
-    branches:
-      - main
-      - master
-  workflow_dispatch:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  hello-job:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Greet and count files
-        env:
-          STUDENT_NAME: ${{ vars.STUDENT_NAME }}
-        run: |
-          if [ -z "$STUDENT_NAME" ]; then
-            echo "Hello! It looks like the STUDENT_NAME variable is not set yet."
-          else
-            echo "Hello, $STUDENT_NAME!"
-          fi

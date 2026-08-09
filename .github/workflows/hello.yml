@@ -2,11 +2,18 @@ name: My Second Workflow
 
 on: push
 jobs:
-  build:
+  say-hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Run a one-line script
-        run: |
-          echo Hello, world!
-          echo Hamse Mohamoud
+      
+      - name: Get the code
+        uses: actions/checkout@v3
+      - name: Greet the world & Count the number of files in the repository
+          env:
+         STUDENT_NAME: ${{ vars.STUDENT_NAME }}
+         run: |
+           echo "Hello $STUDENT_NAME!"
+           echo "The number of files in the repository is:"
+           find . -type f | wc -l
+           echo "The number of files in the repository is:"
+           COUNT=$(find . -type f | wc -l)
